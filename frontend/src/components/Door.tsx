@@ -1,36 +1,38 @@
-import React, { ReactNode, useState } from 'react';
-import { ReactComponent as SunflowerSVG } from '../resources/sunflower.svg'; // Path to your SVG file
+import React, { ReactNode, useState } from "react";
 
 interface DoorProps {
-    children: ReactNode;
-    titel: string;
+  children: ReactNode;
+  title: string;
 }
 
-const Door: React.FC<DoorProps> = ({ children, titel }) => {
-    const todaysDate = (new Date()).getDate();
-    const [isOpen, setIsOpen] = useState(Number(titel) < todaysDate);
+const Door: React.FC<DoorProps> = ({ children, title }) => {
+  // Assuming title is the date for which the door should open
+  //const todaysDate = new Date().getDate();
+  const todaysDate = 2;
+  const [isOpen, setIsOpen] = useState(Number(title) < todaysDate);
 
-    const basicDoorStyle = "absolute w-full h-full bg-gradient-to-br from-teal-300 to-blue-300 rounded"
+  const basicDoorStyle =
+    "absolute bg-gradient-to-br from-teal-300 to-blue-300 rounded w-full h-full flex justify-center items-center z-50";
 
-    const doorStyle = isOpen 
-        ? "transform -translate-x-full transition duration-500 ease-in-out"
-        : "transition duration-500 ease-in-out";
+  const doorStyle = isOpen
+    ? "transform -translate-x-full transition duration-500 ease-in-out"
+    : "transition duration-500 ease-in-out";
 
-    return (
-        <div className={`relative overflow-hidden cursor-pointer border`} onClick={
-            () => {
-                if (Number(titel) === todaysDate) {
-                    setIsOpen(true)
-                }
-            }}>
-            <div className={basicDoorStyle + " " + doorStyle}>
-                <p className="text-blue-800 text-2xl font-bold mt-5">
-                    {titel}
-                </p>
-            </div>
-            {children}
-        </div>
-    );
+  return (
+    <div
+      className="flex justify-center items-center relative overflow-hidden cursor-pointer bg-white bg-opacity-30 rounded w-36 h-28"
+      onClick={() => {
+        if (Number(title) <= todaysDate) {
+          setIsOpen(!isOpen);
+        }
+      }}
+    >
+      <div className={`${basicDoorStyle} ${doorStyle}`}>
+        <p className="text-blue-800 text-2xl font-bold">{title}</p>
+      </div>
+      {children}
+    </div>
+  );
 };
 
 export default Door;

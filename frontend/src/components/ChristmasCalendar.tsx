@@ -1,66 +1,55 @@
-import React from 'react';
-import { ReactComponent as SunflowerSVG } from '../resources/sunflower.svg'; // Path to your SVG file
-import Door from '../components/Door';
+import React from "react";
+import Door from "./Door";
+import Advent1 from "./advents/Advent1";
+import Advent2 from "./advents/Advent2";
+import Advent0 from "./advents/Advent0";
 
-const calendar = [
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-    <SunflowerSVG width="100px" height="75px"/>,
-]
+const calendar = [<Advent0 />, <Advent1 />, <Advent2 />];
 
 const ChristmasCalendar: React.FC = () => {
-  // Seed for the random number generator
   const seed = 12345;
   let randomSeed = seed;
 
-  // Seeded random function
   const seededRandom = () => {
     const x = Math.sin(randomSeed++) * 10000;
     return x - Math.floor(x);
   };
 
+  function randomChoice(arr: string[]) {
+    return arr[Math.floor(arr.length * seededRandom())];
+  }
+
   // Function to generate a random margin value within a range using the seeded random function
   const randomMargin = () => {
-    const min = 5;
-    const max = 19;
-    return Math.floor(seededRandom() * (max - min + 1)) + min;
+    const choices = [
+      "m-1",
+      "m-2",
+      "m-3",
+      "m-4",
+      "m-5",
+      "m-6",
+      "m-7",
+      "m-8",
+      "m-9",
+      "m-10",
+      "m-11",
+    ];
+    return randomChoice(choices);
   };
 
   return (
     <div className="flex flex-wrap">
-        {calendar.map((item, index) => {
-            // Generate random margins for each item using the seeded random function
-            const margin = randomMargin();
-            return (
-              <div style={{ margin: `${margin * 4}px` }}>
-                <Door titel={String(index + 1)}>{item}</Door>
-              </div>
-            );
-        })}
+      {calendar.map((item, index) => {
+        // Generate random margins for each item using the seeded random function
+        const margin = randomMargin();
+        return (
+          <div className={margin}>
+            <Door title={String(index + 1)}>{item}</Door>
+          </div>
+        );
+      })}
     </div>
   );
 };
-
 
 export default ChristmasCalendar;
