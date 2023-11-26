@@ -7,8 +7,8 @@ interface DoorProps {
 
 const Door: React.FC<DoorProps> = ({ children, title }) => {
   // Assuming title is the date for which the door should open
-  //const todaysDate = new Date().getDate();
-  const todaysDate = 2;
+  const todaysDate = new Date().getDate();
+  //const todaysDate = 2;
   const [isOpen, setIsOpen] = useState(Number(title) < todaysDate);
 
   const basicDoorStyle =
@@ -23,7 +23,7 @@ const Door: React.FC<DoorProps> = ({ children, title }) => {
       className="flex justify-center items-center relative overflow-hidden cursor-pointer bg-white bg-opacity-30 rounded w-36 h-28"
       onClick={() => {
         if (Number(title) <= todaysDate) {
-          setIsOpen(!isOpen);
+          setIsOpen(true);
         }
       }}
     >

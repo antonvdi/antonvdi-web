@@ -3,8 +3,16 @@ import Door from "./Door";
 import Advent1 from "./advents/Advent1";
 import Advent2 from "./advents/Advent2";
 import Advent0 from "./advents/Advent0";
+import Advent3 from "./advents/Advent3";
+import Advent4 from "./advents/Advent4";
 
-const calendar = [<Advent0 />, <Advent1 />, <Advent2 />];
+const calendar = [
+  <Advent0 />,
+  <Advent1 />,
+  <Advent2 />,
+  <Advent3 />,
+  <Advent4 />,
+];
 
 const ChristmasCalendar: React.FC = () => {
   const seed = 12345;
