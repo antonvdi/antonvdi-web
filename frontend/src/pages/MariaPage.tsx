@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import ChristmasCalendar from "../components/ChristmasCalendar";
 import { ReactComponent as ChristmasTreeSVG } from "../resources/christmastree.svg";
 import Snowfall from "react-snowfall";

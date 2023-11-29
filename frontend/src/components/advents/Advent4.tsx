@@ -12,7 +12,7 @@ const Advent4: React.FC = () => {
     <>
       <button
         onClick={addTree}
-        className="bg-white hover:bg-gray-200 hover:scale-105 text-black py-2 px-4 rounded transform active:scale-95 transition-transform"
+        className="bg-green-600 hover:bg-green-800 hover:scale-105 text-white py-2 px-4 rounded transform active:scale-95 transition-transform"
       >
         Få et juletræ!
       </button>

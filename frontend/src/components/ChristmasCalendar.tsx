@@ -5,6 +5,11 @@ import Advent2 from "./advents/Advent2";
 import Advent0 from "./advents/Advent0";
 import Advent3 from "./advents/Advent3";
 import Advent4 from "./advents/Advent4";
+import Advent5 from "./advents/Advent5";
+import Advent6 from "./advents/Advent6";
+import Advent7 from "./advents/Advent7";
+import Advent8 from "./advents/Advent8";
+import Advent9 from "./advents/Advent9";
 
 const calendar = [
   <Advent0 />,
@@ -12,6 +17,25 @@ const calendar = [
   <Advent2 />,
   <Advent3 />,
   <Advent4 />,
+  <Advent5 />,
+  <Advent6 />,
+  <Advent7 />,
+  <Advent8 />,
+  <Advent9 />,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
+  <></>,
 ];
 
 const ChristmasCalendar: React.FC = () => {
