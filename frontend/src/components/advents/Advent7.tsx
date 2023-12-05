@@ -1,7 +1,7 @@
 import React from "react";
 import DialogButton from "../DialogButton";
 
-const Advent6: React.FC = () => {
+const Advent7: React.FC = () => {
   return (
     <>
       <DialogButton
@@ -21,4 +21,4 @@ const Advent6: React.FC = () => {
   );
 };
 
-export default Advent6;
+export default Advent7;

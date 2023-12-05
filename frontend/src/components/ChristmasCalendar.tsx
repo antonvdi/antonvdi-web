@@ -10,6 +10,8 @@ import Advent6 from "./advents/Advent6";
 import Advent7 from "./advents/Advent7";
 import Advent8 from "./advents/Advent8";
 import Advent9 from "./advents/Advent9";
+import Advent10 from "./advents/Advent10";
+import Advent24 from "./advents/Advent24";
 
 const calendar = [
   <Advent0 />,
@@ -22,6 +24,7 @@ const calendar = [
   <Advent7 />,
   <Advent8 />,
   <Advent9 />,
+  <Advent10 />,
   <></>,
   <></>,
   <></>,
@@ -34,8 +37,7 @@ const calendar = [
   <></>,
   <></>,
   <></>,
-  <></>,
-  <></>,
+  <Advent24 />,
 ];
 
 const ChristmasCalendar: React.FC = () => {

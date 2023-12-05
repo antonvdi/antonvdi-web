@@ -5,7 +5,7 @@ const Advent4: React.FC = () => {
   const { context, setContext } = useContext(ChristmasContext);
 
   const addTree = () => {
-    setContext({ ...context, showTree: true });
+    setContext({ ...context, showTree: !context.showTree });
   };
 
   return (

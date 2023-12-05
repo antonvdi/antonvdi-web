@@ -2,12 +2,12 @@ import React from "react";
 import DialogButton from "../DialogButton";
 import Image from "../../resources/Frank_Cars.webp";
 
-const Advent6: React.FC = () => {
+const Advent9: React.FC = () => {
   return (
     <>
       <DialogButton
         title=""
-        buttonText="duh duh duh duh"
+        buttonText="her gemmer du dig"
         buttonColor="bg-indigo-600"
         buttonColorHover="hover:bg-indigo-800"
         body={
@@ -25,4 +25,4 @@ const Advent6: React.FC = () => {
   );
 };
 
-export default Advent6;
+export default Advent9;
