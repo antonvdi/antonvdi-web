@@ -7,8 +7,8 @@ const Advent10: React.FC = () => {
       <DialogButton
         title=""
         buttonText="Sæt lyd på"
-        buttonColor="bg-indigo-600"
-        buttonColorHover="hover:bg-indigo-800"
+        buttonColor="bg-red-600"
+        buttonColorHover="hover:bg-red-800"
         body={
           <div className="max-width-sm">
             <div

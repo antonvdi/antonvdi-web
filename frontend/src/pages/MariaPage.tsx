@@ -9,8 +9,8 @@ interface IChristmasContext {
 }
 
 const initContext: IChristmasContext = {
-  showTree: false,
-  isSnowing: false,
+  showTree: new Date().getDate() > 5 && new Date().getDate() !== 24,
+  isSnowing: new Date().getDate() > 4,
 };
 
 export const ChristmasContext = createContext({
