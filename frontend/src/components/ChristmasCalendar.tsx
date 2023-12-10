@@ -15,6 +15,8 @@ import Advent24 from "./advents/Advent24";
 import Advent11 from "./advents/Advent11";
 import Advent12 from "./advents/Advent12";
 import Advent13 from "./advents/Advent13";
+import Advent14 from "./advents/Advent14";
+import Advent15 from "./advents/Advent15";
 
 const calendar = [
   <Advent0 />,
@@ -31,8 +33,8 @@ const calendar = [
   <Advent11 />,
   <Advent12 />,
   <Advent13 />,
-  <></>,
-  <></>,
+  <Advent14 />,
+  <Advent15 />,
   <></>,
   <></>,
   <></>,
