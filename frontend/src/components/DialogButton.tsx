@@ -41,7 +41,7 @@ const DialogButton: React.FC<DialogButtonProps> = ({
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
           <Dialog.Panel className="max-w-xxl rounded bg-blue-100 p-5">
             <Dialog.Title className="font-bold">{title}</Dialog.Title>
-            <Dialog.Description>{body}</Dialog.Description>
+            <Dialog.Description className={""}>{body}</Dialog.Description>
             <button
               onClick={() => setIsOpen(false)}
               className="mt-4 bg-indigo-600 hover:bg-indigo-800 hover:scale-105 text-white py-1 px-4 rounded transform active:scale-95 transition-transform"
