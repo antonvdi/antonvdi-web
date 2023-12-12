@@ -2,7 +2,7 @@ import React from "react";
 import DialogButton from "../DialogButton";
 import BentGame from "../maze/BentGame";
 
-const Advent24: React.FC = () => {
+const Advent23: React.FC = () => {
   return (
     <>
       <DialogButton
@@ -16,4 +16,4 @@ const Advent24: React.FC = () => {
   );
 };
 
-export default Advent24;
+export default Advent23;

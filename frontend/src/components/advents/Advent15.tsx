@@ -21,7 +21,9 @@ const Advent15: React.FC = () => {
             />
             <input
               onChange={(event) =>
-                setCorrect(event.target.value.toLowerCase() === "høns i suppen")
+                setCorrect(
+                  event.target.value.toLowerCase().includes("høns i suppen")
+                )
               }
               className="rounded-lg mt-3 p-1"
               placeholder="Skriv her"

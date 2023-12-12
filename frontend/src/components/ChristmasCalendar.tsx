@@ -11,12 +11,14 @@ import Advent7 from "./advents/Advent7";
 import Advent8 from "./advents/Advent8";
 import Advent9 from "./advents/Advent9";
 import Advent10 from "./advents/Advent10";
-import Advent24 from "./advents/Advent24";
+import Advent23 from "./advents/Advent23";
 import Advent11 from "./advents/Advent11";
 import Advent12 from "./advents/Advent12";
 import Advent13 from "./advents/Advent13";
 import Advent14 from "./advents/Advent14";
 import Advent15 from "./advents/Advent15";
+import Advent16 from "./advents/Advent16";
+import Advent17 from "./advents/Advent17";
 
 const calendar = [
   <Advent0 />,
@@ -35,14 +37,14 @@ const calendar = [
   <Advent13 />,
   <Advent14 />,
   <Advent15 />,
+  <Advent16 />,
+  <Advent17 />,
   <></>,
   <></>,
   <></>,
   <></>,
   <></>,
-  <></>,
-  <></>,
-  <Advent24 />,
+  <Advent23 />,
 ];
 
 const ChristmasCalendar: React.FC = () => {

@@ -8,7 +8,7 @@ interface DoorProps {
 const Door: React.FC<DoorProps> = ({ children, title }) => {
   // Assuming title is the date for which the door should open
   const todaysDate = new Date().getDate();
-  // const todaysDate = 24;
+  //const todaysDate = 24;
   const [isOpen, setIsOpen] = useState(Number(title) < todaysDate);
 
   const basicDoorStyle =
