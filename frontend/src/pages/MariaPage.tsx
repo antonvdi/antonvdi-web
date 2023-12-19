@@ -2,12 +2,14 @@ import React, { createContext, useState } from "react";
 import ChristmasCalendar from "../components/ChristmasCalendar";
 import { ReactComponent as ChristmasTreeSVG } from "../resources/christmastree.svg";
 import Snowfall from "react-snowfall";
+import "./MariaPage.css";
 
 interface IChristmasContext {
   showTree: boolean;
   isSnowing: boolean;
   hasChristmasLights: boolean;
   christmasColor: { color: number; label: string } | null;
+  hasStar: boolean;
 }
 
 const initContext: IChristmasContext = {
@@ -15,6 +17,7 @@ const initContext: IChristmasContext = {
   isSnowing: new Date().getDate() > 4,
   hasChristmasLights: new Date().getDate() > 16,
   christmasColor: null,
+  hasStar: new Date().getDate() > 20,
 };
 
 export const ChristmasContext = createContext({
@@ -37,13 +40,6 @@ const MariaPage: React.FC = () => {
     "bg-indigo-500", // Deep indigo for a unique look
   ];
   const lights = [
-    {
-      top: "20%",
-      left: "45%",
-      color:
-        christmasColors[Math.floor(Math.random() * christmasColors.length)],
-    },
-
     {
       top: "40%",
       left: "35%",
@@ -118,6 +114,15 @@ const MariaPage: React.FC = () => {
                   style={{ top: light.top, left: light.left }}
                 />
               ))}
+              {context.hasStar ? (
+                <div
+                  key={"star"}
+                  className={`star`}
+                  style={{ top: "10%", left: "38%" }}
+                />
+              ) : (
+                <></>
+              )}
             </div>
           ) : (
             <ChristmasTreeSVG width={100} height={100} />
