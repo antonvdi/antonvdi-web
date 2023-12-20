@@ -74,7 +74,7 @@ export default function BentGame() {
   return (
     <div className="Game" onKeyDown={handleMove} tabIndex={1}>
       <p className="max-w-prose">
-        Men åh nej! Juletræet er blevet sjålet! Hjælp Bent med at finde
+        Men åh nej! Juletræet er blevet sjålet af Frank! Hjælp Bent med at finde
         juletræet! Brug piletasterne til at bevæge dig
       </p>
 
