@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import Sitemark from "./SitemarkIcon";
+import AIConsultancyIcon from "./AIConsultancyIcon";
 import { useState } from "react";
 import { Slide, useScrollTrigger } from "@mui/material";
 
@@ -53,39 +53,31 @@ export default function AppAppBar(props: AppBarProps) {
             <Box
               sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}
             >
-              <Sitemark />
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <AIConsultancyIcon />
+              <Box sx={{ display: { xs: "none", sm: "flex" } }}>
                 <Button variant="text" color="info" size="small">
-                  Features
-                </Button>
-                <Button variant="text" color="info" size="small">
-                  Testimonials
+                  Ydelser
                 </Button>
                 <Button variant="text" color="info" size="small">
                   Highlights
                 </Button>
                 <Button variant="text" color="info" size="small">
-                  Pricing
+                  CV
                 </Button>
-                <Button
-                  variant="text"
-                  color="info"
-                  size="small"
-                  sx={{ minWidth: 0 }}
-                >
-                  FAQ
-                </Button>
-                <Button
-                  variant="text"
-                  color="info"
-                  size="small"
-                  sx={{ minWidth: 0 }}
-                >
+                <Button variant="text" color="info" size="small">
                   Blog
+                </Button>
+                <Button
+                  variant="text"
+                  color="secondary"
+                  size="small"
+                  sx={{ fontWeight: 700 }}
+                >
+                  Kontakt
                 </Button>
               </Box>
             </Box>
-            <Box sx={{ display: { sm: "flex", md: "none" } }}>
+            <Box sx={{ display: { xs: "flex", sm: "none" } }}>
               <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
                 <MenuIcon />
               </IconButton>
@@ -103,12 +95,11 @@ export default function AppAppBar(props: AppBarProps) {
                     </IconButton>
                   </Box>
                   <Divider sx={{ my: 3 }} />
-                  <MenuItem>Features</MenuItem>
-                  <MenuItem>Testimonials</MenuItem>
+                  <MenuItem>Ydelser</MenuItem>
                   <MenuItem>Highlights</MenuItem>
-                  <MenuItem>Pricing</MenuItem>
-                  <MenuItem>FAQ</MenuItem>
+                  <MenuItem>CV</MenuItem>
                   <MenuItem>Blog</MenuItem>
+                  <MenuItem>Kontakt</MenuItem>
                 </Box>
               </Drawer>
             </Box>

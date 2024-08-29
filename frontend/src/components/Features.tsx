@@ -21,17 +21,13 @@ const items = [
       "This item could provide a snapshot of the most important metrics or data points related to the product.",
     imageLight:
       'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
     title: "Mobile integration",
     description:
       "This item could provide information about the mobile app version of the product.",
-    imageLight:
-      'url("/static/images/templates/templates-images/mobile-light.png")',
-    imageDark:
-      'url("/static/images/templates/templates-images/mobile-dark.png")',
+    imageLight: 'url("/static/images/pro_ai.png")',
   },
   {
     icon: <DevicesRoundedIcon />,
@@ -40,8 +36,6 @@ const items = [
       "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
     imageLight:
       'url("/static/images/templates/templates-images/devices-light.png")',
-    imageDark:
-      'url("/static/images/templates/templates-images/devices-dark.png")',
   },
 ];
 
@@ -119,7 +113,6 @@ export function MobileLayout({
             items[selectedItemIndex]
               ? ({
                   "--items-imageLight": items[selectedItemIndex].imageLight,
-                  "--items-imageDark": items[selectedItemIndex].imageDark,
                 } as any)
               : {}
           }
@@ -266,7 +259,6 @@ export default function Features() {
                 items[selectedItemIndex]
                   ? ({
                       "--items-imageLight": items[selectedItemIndex].imageLight,
-                      "--items-imageDark": items[selectedItemIndex].imageDark,
                     } as any)
                   : {}
               }

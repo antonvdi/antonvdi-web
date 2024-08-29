@@ -9,4 +9,5 @@ firebase deploy
 Local development
 ```
 npm run start
+firebase emulators:start
 ```

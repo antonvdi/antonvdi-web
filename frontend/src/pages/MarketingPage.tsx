@@ -1,13 +1,10 @@
 import Divider from "@mui/material/Divider";
 import AppAppBar from "../components/AppAppBar";
 import Hero from "../components/Hero";
-import LogoCollection from "../components/LogoCollection";
 import Highlights from "../components/Highlights";
-import Pricing from "../components/Pricing";
-import Features from "../components/Features";
-import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import Examples from "../components/Examples";
 
 export default function MarketingPage() {
   return (
@@ -15,14 +12,16 @@ export default function MarketingPage() {
       <AppAppBar />
       <Hero />
       <div>
-        <LogoCollection />
-        <Features />
         <Divider />
-        <Testimonials />
+        <Examples />
+        {/* <LogoCollection /> */}
+        {/* <Features /> */}
+        {/* <Divider /> */}
+        {/* <Testimonials /> */}
         <Divider />
         <Highlights />
-        <Divider />
-        <Pricing />
+        {/* <Divider /> */}
+        {/* <Pricing /> */}
         <Divider />
         <FAQ />
         <Divider />

@@ -3,7 +3,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -39,9 +38,38 @@ export default function FAQ() {
           textAlign: { sm: "left", md: "center" },
         }}
       >
-        Frequently asked questions
+        Ofte stillede spørgsmål
       </Typography>
       <Box sx={{ width: "100%" }}>
+        <Accordion
+          expanded={expanded === "panel4"}
+          onChange={handleChange("panel4")}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel4d-content"
+            id="panel4d-header"
+          >
+            <Typography component="h3" variant="subtitle2">
+              Hvad er AI og hvordan kan det skabe værdi for min virksomhed?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
+            >
+              AI står for Artificial Intelligence (kunstig intelligens på godt
+              dansk) og dækker over en række teknologier, der kan hjælpe med at
+              automatisere processer, forudsige fremtidige hændelser og træffe
+              beslutninger. AI kan skabe værdi for din virksomhed ved at
+              reducere omkostninger, øge effektiviteten og skabe nye
+              forretningsmuligheder. Du har sikkert prøvet ChatGPT som er et
+              fremragende eksempel på moderne AI.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -52,7 +80,7 @@ export default function FAQ() {
             id="panel1d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              How do I contact customer support if I have a question or issue?
+              Hvordan kommer jeg i kontakt med AI Consultancy?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -61,10 +89,8 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: "100%", md: "70%" } }}
             >
-              You can reach our customer support team by emailing
-              <Link> support@email.com </Link>
-              or calling our toll-free number. We&apos;re here to assist you
-              promptly.
+              Du er altid velkommen til at kontakte AI Consultancy med dine
+              spørgsmål, interesse eller forespørgsel på mail anton@irvold.dk.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -78,7 +104,7 @@ export default function FAQ() {
             id="panel2d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Can I return the product if it doesn&apos;t meet my expectations?
+              Hvordan fungerer prissætningen?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -87,9 +113,11 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: "100%", md: "70%" } }}
             >
-              Absolutely! We offer a hassle-free return policy. If you&apos;re
-              not completely satisfied, you can return the product within
-              [number of days] days for a full refund or exchange.
+              Det afhænger af om der aftales en projektbaseret pris,
+              konsulentpris på timebasis eller om du ønsker vi står for driften
+              af dit system og vil betale månedligt eller årligt. Kontakt os med
+              dit projekt for at høre mere. Vores priser er yderst
+              konkurrencedygtige.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -103,7 +131,7 @@ export default function FAQ() {
             id="panel3d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              What makes your product stand out from others in the market?
+              Skal mit projekt indeholde AI?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -112,36 +140,10 @@ export default function FAQ() {
               gutterBottom
               sx={{ maxWidth: { sm: "100%", md: "70%" } }}
             >
-              Our product distinguishes itself through its adaptability,
-              durability, and innovative features. We prioritize user
-              satisfaction and continually strive to exceed expectations in
-              every aspect.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded === "panel4"}
-          onChange={handleChange("panel4")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4d-content"
-            id="panel4d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Is there a warranty on the product, and what does it cover?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              Yes, our product comes with a [length of warranty] warranty. It
-              covers defects in materials and workmanship. If you encounter any
-              issues covered by the warranty, please contact our customer
-              support for assistance.
+              Det er ikke et krav. Vi kan hjælpe med mange forskellige typer af
+              softwareudvikling og rådgivning. Vi har dog stor erfaring med AI
+              og kan hjælpe dig med at vurdere om AI kan skabe værdi for dit
+              projekt, samt hvordan det kan implementeres.
             </Typography>
           </AccordionDetails>
         </Accordion>

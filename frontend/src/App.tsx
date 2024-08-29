@@ -3,7 +3,6 @@ import MarketingPage from "./pages/MarketingPage";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import getMPTheme from "./theme/getMPTheme";
-// Import other components you want to route to
 
 function App() {
   const MPTheme = createTheme(getMPTheme("light"));

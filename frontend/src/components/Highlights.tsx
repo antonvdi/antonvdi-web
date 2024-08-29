@@ -5,49 +5,49 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import AutoFixHighRoundedIcon from "@mui/icons-material/AutoFixHighRounded";
-import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
-import QueryStatsRoundedIcon from "@mui/icons-material/QueryStatsRounded";
-import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRounded";
-import SupportAgentRoundedIcon from "@mui/icons-material/SupportAgentRounded";
-import ThumbUpAltRoundedIcon from "@mui/icons-material/ThumbUpAltRounded";
+import AppsIcon from "@mui/icons-material/Apps";
+import TextFieldsIcon from "@mui/icons-material/TextFields";
+import ChatIcon from "@mui/icons-material/Chat";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import LinkIcon from "@mui/icons-material/Link";
 
 const items = [
   {
-    icon: <SettingsSuggestRoundedIcon />,
-    title: "Adaptable performance",
+    icon: <TextFieldsIcon />,
+    title: "AI copywriting",
     description:
-      "Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.",
+      "Generer sælgende og engagerende tekster til sociale medier, nyhedsbreve og webindhold ved hjælp af AI, der sikrer, at dit budskab altid rammer plet.",
   },
   {
-    icon: <ConstructionRoundedIcon />,
-    title: "Built to last",
+    icon: <ChatIcon />,
+    title: "Chatbot",
     description:
-      "Experience unmatched durability that goes above and beyond with lasting investment.",
+      "Implementer en AI-drevet chatbot, der kan besvare kundernes spørgsmål 24/7 og lette chatten, så dine medarbejdere kan fokusere på mere komplekse forespørgsler.",
   },
   {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: "Great user experience",
+    icon: <PhotoLibraryIcon />,
+    title: "Computer Vision",
     description:
-      "Integrate our product into your routine with an intuitive and easy-to-use interface.",
+      "Brug Computer Vision til at analysere billeder og videoer, så du kan identificere objekter, ansigter, tekst og meget mere.",
   },
   {
-    icon: <AutoFixHighRoundedIcon />,
-    title: "Innovative functionality",
+    icon: <AppsIcon />,
+    title: "App-udvikling",
     description:
-      "Stay ahead with features that set new standards, addressing your evolving needs better than the rest.",
+      "Lancer dine kundevendte AI-løsninger som en app eller web-applikation, der er tilgængelig på tværs af platforme, så dine kunder kan få adgang til dem, uanset hvor de er.",
   },
   {
-    icon: <SupportAgentRoundedIcon />,
-    title: "Reliable support",
+    icon: <AnalyticsIcon />,
+    title: "AI-drevet dataanalyse",
     description:
-      "Count on our responsive customer support, offering assistance that goes beyond the purchase.",
+      "Analyser din virksomheds databaser eller Excel-ark med AI for at identificere mønstre, træffe bedre beslutninger og forudsige fremtidige resultater.",
   },
   {
-    icon: <QueryStatsRoundedIcon />,
-    title: "Precision in every detail",
+    icon: <LinkIcon />,
+    title: "Integrationer",
     description:
-      "Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.",
+      "Integrér dine IT-systemer med offentlige og private eksterne snitflader og tredjepartsapplikationer for at automatisere processer og forbedre datakvaliteten.",
   },
 ];
 
@@ -78,12 +78,13 @@ export default function Highlights() {
           }}
         >
           <Typography component="h2" variant="h4" gutterBottom>
-            Highlights
+            Vi kan tilbyde dig dette...
           </Typography>
           <Typography variant="body1" sx={{ color: "grey.400" }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer
-            support and precision in every detail.
+            ... og meget mere. Vi er her for at hjælpe dig med at opnå dine mål,
+            uanset om du har brug for en AI løsning, en integration eller noget
+            helt tredje. Vi udvikler platformen og værktøjerne, så du kan
+            fokusere på at skabe værdi for dine kunder.
           </Typography>
         </Box>
         <Grid container spacing={2}>
