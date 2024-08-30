@@ -8,15 +8,82 @@
  */
 
 import { onRequest } from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+import * as admin from "firebase-admin";
+import OpenAI from "openai";
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+admin.initializeApp();
 
-export const helloWorld = onRequest(
-  { cors: [/firebase\.com$/, "flutter.com", "http://localhost:3000"] },
-  (request, response) => {
-    logger.info("Hello logs!", { structuredData: true });
-    response.send("Hello from Firebase!");
+let cache: { lastResponse: null | string; lastTimestamp: number } = {
+  lastResponse: null,
+  lastTimestamp: 0,
+};
+
+const CACHE_DURATION = 5000; // Cache duration in milliseconds (5 seconds)
+
+export const askOpenAI = onRequest(
+  { cors: true },
+  async (request, response) => {
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+    const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+    const prevAnswers = request.body;
+
+    // Check if the cache is valid
+    const currentTime = Date.now();
+    if (
+      cache.lastResponse &&
+      cache.lastTimestamp &&
+      currentTime - cache.lastTimestamp < CACHE_DURATION
+    ) {
+      response.send({
+        status: 200,
+        data: cache.lastResponse,
+      });
+      return;
+    }
+
+    let prevAnswersPrompt = prevAnswers;
+    if (prevAnswersPrompt.length > 200) {
+      prevAnswersPrompt = prevAnswers.slice(
+        prevAnswers.length - 200,
+        prevAnswers.length
+      );
+    }
+
+    const predefinedPrompt = `Hvilken ide, kreativt forslag eller konkrete løsninger kan jeg lave med AI til min lokale, små- eller mellemstore virksomhed? Undgå de allerede brugte svar: ${prevAnswersPrompt}.`;
+
+    try {
+      const completion = await openai.chat.completions.create({
+        messages: [
+          {
+            role: "system",
+            content:
+              "Du er en hjælpsom assistent. Du svarer med 1-7 ord. Sætningen skal kunne slutte 'AI kan hjælpe dig med...', men ikke inkludere den specifikke sætning.",
+          },
+          {
+            role: "user",
+            content: predefinedPrompt,
+          },
+        ],
+        model: "gpt-4o",
+      });
+
+      const answer = completion.choices[0].message.content;
+
+      // Update cache
+      cache.lastResponse = answer;
+      cache.lastTimestamp = currentTime;
+
+      response.send({
+        status: 200,
+        data: answer,
+      });
+    } catch (error) {
+      console.error("Error calling OpenAI API:", error);
+      response.send({
+        status: 500,
+        error: "Failed to fetch response from OpenAI.",
+      });
+    }
   }
 );

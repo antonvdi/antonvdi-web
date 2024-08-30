@@ -4,6 +4,7 @@ To deploy:
 ```
 npm run build
 firebase deploy
+firebase deploy --only functions
 ```
 
 Local development

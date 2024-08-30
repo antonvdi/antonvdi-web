@@ -16,7 +16,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const functions = getFunctions(app);
+export const functions = getFunctions(app);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -1,38 +1,46 @@
-// StreamingText.tsx
-import React, { useEffect, useState } from "react";
-import { Typography, TypographyProps } from "@mui/material";
+import React from "react";
+import Typography, { TypographyProps } from "@mui/material/Typography";
+import { styled } from "@mui/system";
 
+const StreamingTextContainer = styled("div")({
+  display: "inline-block",
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+  animation: "typing 5s steps(40, end) 1",
+  "@keyframes typing": {
+    "0%": {
+      width: "0%",
+    },
+    "50%": {
+      width: "100%",
+    },
+    "100%": {
+      width: "100%",
+    },
+  },
+});
+
+/**
+ * Props for StreamingText component.
+ */
 interface StreamingTextProps extends TypographyProps {
-  speed?: number; // optional prop for speed (default = 50)
-  text: string; // prop for text
+  message: string;
 }
 
+/**
+ * A component that simulates a streaming effect for a chatbot message using MUI Typography.
+ * @param {StreamingTextProps} props - The props for the component.
+ * @returns {JSX.Element} - The rendered component.
+ */
 const StreamingText: React.FC<StreamingTextProps> = ({
-  speed = 50,
-  text,
+  message,
   ...typographyProps
 }) => {
-  const [displayedText, setDisplayedText] = useState<string>("");
-
-  useEffect(() => {
-    let index = 0;
-
-    const interval = setInterval(() => {
-      if (index < text.length - 1) {
-        setDisplayedText((prev) => prev + text[index]);
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, speed);
-
-    return () => {
-      clearInterval(interval);
-      setDisplayedText("");
-    };
-  }, [text, speed]);
-
-  return <Typography {...typographyProps}>{displayedText}</Typography>;
+  return (
+    <StreamingTextContainer>
+      <Typography {...typographyProps}>{message}</Typography>
+    </StreamingTextContainer>
+  );
 };
 
 export default StreamingText;
