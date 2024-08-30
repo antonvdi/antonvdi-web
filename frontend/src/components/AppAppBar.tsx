@@ -40,6 +40,7 @@ export default function AppAppBar(props: AppBarProps) {
     const headerElement = document.getElementById(id);
     if (headerElement) {
       headerElement.scrollIntoView({ behavior: "smooth" });
+      setOpen(false);
     }
   };
 
