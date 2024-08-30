@@ -1,5 +1,4 @@
 import SvgIcon from "@mui/material/SvgIcon";
-import AIConsultancy from "./AIConsultancy";
 
 export default function SitemarkIcon() {
   return (

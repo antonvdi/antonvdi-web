@@ -1,7 +1,13 @@
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { Avatar, Box, Button, Card, CardContent } from "@mui/material";
-import { ReactTyped } from "react-typed";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+} from "@mui/material";
 
 export default function Contact() {
   return (
@@ -36,7 +42,7 @@ export default function Contact() {
             Start med AI i dag
           </Typography>
           <Typography variant="body1" sx={{ color: "grey.500" }}>
-            ... kontakt mig ved nedenstående informationer og lad os tage en
+            ... og kontakt mig ved nedenstående informationer og lad os tage en
             uforpligtende snak.
           </Typography>
         </Box>
@@ -80,26 +86,28 @@ export default function Contact() {
                 </Typography>
               </Box>
             </Box>
-
+          </CardContent>
+          <CardActions>
             <Button
-              variant="contained"
-              color="primary"
+              startIcon={<></>}
               href="mailto:anton@irvold.dk"
+              color="primary"
               target="_blank"
-              sx={{ mr: 2 }}
+              sx={{ mr: 1 }}
+              variant="contained"
             >
               anton@irvold.dk
             </Button>
-
             <Button
-              variant="contained"
+              startIcon={<></>}
               color="info"
               href="https://www.linkedin.com/in/anton-irvold"
               target="_blank"
+              variant="contained"
             >
               Connect på LinkedIn
             </Button>
-          </CardContent>
+          </CardActions>
         </Card>
       </Container>
     </Box>

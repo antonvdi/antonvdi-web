@@ -1,16 +1,17 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import InputLabel from "@mui/material/InputLabel";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
-import { visuallyHidden } from "@mui/utils";
-import { styled } from "@mui/material/styles";
-
 export default function Hero() {
+  const scrollToHeader = (id: string) => {
+    const headerElement = document.getElementById(id);
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box
       id="hero"
@@ -75,6 +76,7 @@ export default function Hero() {
               color="primary"
               size="small"
               sx={{ minWidth: "100%" }}
+              onClick={() => scrollToHeader("header-kontakt")}
             >
               Start i dag
             </Button>

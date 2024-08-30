@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { initializeApp } from "firebase/app";
-import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
+import { getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCoVD8ICn2vOSOCVqexCJEbifpbrStwQ8k",
@@ -17,7 +17,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const functions = getFunctions(app);
-connectFunctionsEmulator(functions, "localhost", 5001);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
