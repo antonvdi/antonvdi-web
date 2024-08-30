@@ -37,6 +37,7 @@ export default function FAQ() {
           width: { sm: "100%", md: "60%" },
           textAlign: { sm: "left", md: "center" },
         }}
+        id="header-faq"
       >
         Ofte stillede spørgsmål
       </Typography>

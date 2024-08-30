@@ -36,6 +36,13 @@ export default function AppAppBar(props: AppBarProps) {
     setOpen(newOpen);
   };
 
+  const scrollToHeader = (id: string) => {
+    const headerElement = document.getElementById(id);
+    if (headerElement) {
+      headerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar
@@ -55,23 +62,37 @@ export default function AppAppBar(props: AppBarProps) {
             >
               <AIConsultancyIcon />
               <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-                <Button variant="text" color="info" size="small">
+                <Button
+                  variant="text"
+                  color="info"
+                  size="small"
+                  onClick={() => scrollToHeader("header-inspiration")}
+                >
+                  Inspiration
+                </Button>
+                <Button
+                  variant="text"
+                  color="info"
+                  size="small"
+                  onClick={() => scrollToHeader("header-ydelser")}
+                >
                   Ydelser
                 </Button>
-                <Button variant="text" color="info" size="small">
-                  Highlights
+                <Button
+                  variant="text"
+                  color="info"
+                  size="small"
+                  onClick={() => scrollToHeader("header-faq")}
+                >
+                  FAQ
                 </Button>
-                <Button variant="text" color="info" size="small">
-                  CV
-                </Button>
-                <Button variant="text" color="info" size="small">
-                  Blog
-                </Button>
+
                 <Button
                   variant="text"
                   color="secondary"
                   size="small"
                   sx={{ fontWeight: 700 }}
+                  onClick={() => scrollToHeader("header-kontakt")}
                 >
                   Kontakt
                 </Button>
@@ -95,11 +116,20 @@ export default function AppAppBar(props: AppBarProps) {
                     </IconButton>
                   </Box>
                   <Divider sx={{ my: 3 }} />
-                  <MenuItem>Ydelser</MenuItem>
-                  <MenuItem>Highlights</MenuItem>
-                  <MenuItem>CV</MenuItem>
-                  <MenuItem>Blog</MenuItem>
-                  <MenuItem>Kontakt</MenuItem>
+                  <MenuItem
+                    onClick={() => scrollToHeader("header-inspiration")}
+                  >
+                    Inspiration
+                  </MenuItem>
+                  <MenuItem onClick={() => scrollToHeader("header-ydelser")}>
+                    Ydelser
+                  </MenuItem>
+                  <MenuItem onClick={() => scrollToHeader("header-faq")}>
+                    FAQ
+                  </MenuItem>
+                  <MenuItem onClick={() => scrollToHeader("header-kontakt")}>
+                    Kontakt
+                  </MenuItem>
                 </Box>
               </Drawer>
             </Box>

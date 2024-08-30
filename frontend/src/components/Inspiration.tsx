@@ -15,7 +15,7 @@ import {
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { ReactTyped } from "react-typed";
 
-export default function Examples() {
+export default function Inspiration() {
   const [prevExamples, setPrevExamples] = useState<string[]>([]);
   const [example, setExample] = useState<string>("");
   const [isDisabled, setIsDisabled] = useState(false);
@@ -116,6 +116,27 @@ export default function Examples() {
         gap: { xs: 3, sm: 6 },
       }}
     >
+      <Box
+        sx={{
+          width: { sm: "100%", md: "60%" },
+          textAlign: { sm: "left", md: "center" },
+        }}
+      >
+        <Typography
+          component="h2"
+          variant="h4"
+          gutterBottom
+          id="header-inspiration"
+        >
+          Bliv inspireret med kunstig intelligens
+        </Typography>
+        <Typography variant="body1" sx={{ color: "grey.500" }}>
+          Vi har lavet en AI model, som kan generere inspiration til hvad du kan
+          bruge AI til. Vælg en type virksomhed, der passer bedst på dig, og lad
+          AI'en guide dig. Klik på "Generér" for at få nye, automatiske forslag.
+        </Typography>
+      </Box>
+
       <Card sx={{ minWidth: 400, maxWidth: 600 }}>
         <CardContent>
           {companyTypes.map((type) => (

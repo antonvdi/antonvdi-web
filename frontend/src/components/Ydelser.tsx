@@ -1,4 +1,3 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
@@ -14,22 +13,16 @@ import LinkIcon from "@mui/icons-material/Link";
 
 const items = [
   {
-    icon: <TextFieldsIcon />,
-    title: "AI copywriting",
+    icon: <PhotoLibraryIcon />,
+    title: "Computer Vision",
     description:
-      "Generer sælgende og engagerende tekster til sociale medier, nyhedsbreve og webindhold ved hjælp af AI, der sikrer, at dit budskab altid rammer plet.",
+      "Brug Computer Vision til at analysere billeder og videoer, så du kan identificere objekter, ansigter, tekst og meget mere.",
   },
   {
     icon: <ChatIcon />,
     title: "Chatbot",
     description:
       "Implementer en AI-drevet chatbot, der kan besvare kundernes spørgsmål 24/7 og lette chatten, så dine medarbejdere kan fokusere på mere komplekse forespørgsler.",
-  },
-  {
-    icon: <PhotoLibraryIcon />,
-    title: "Computer Vision",
-    description:
-      "Brug Computer Vision til at analysere billeder og videoer, så du kan identificere objekter, ansigter, tekst og meget mere.",
   },
   {
     icon: <AppsIcon />,
@@ -44,6 +37,12 @@ const items = [
       "Analyser din virksomheds databaser eller Excel-ark med AI for at identificere mønstre, træffe bedre beslutninger og forudsige fremtidige resultater.",
   },
   {
+    icon: <TextFieldsIcon />,
+    title: "AI copywriting",
+    description:
+      "Generer sælgende og engagerende tekster til sociale medier, nyhedsbreve og webindhold ved hjælp af AI, der sikrer, at dit budskab altid rammer plet.",
+  },
+  {
     icon: <LinkIcon />,
     title: "Integrationer",
     description:
@@ -51,16 +50,16 @@ const items = [
   },
 ];
 
-export default function Highlights() {
+export default function Ydelser() {
   return (
     <Box
-      id="highlights"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
         color: "white",
         bgcolor: "grey.900",
       }}
+      id="header-ydelser"
     >
       <Container
         sx={{
