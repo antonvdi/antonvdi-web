@@ -1,19 +1,23 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-import LandingPage from "./pages/LandingPage";
-// Import other components you want to route to
+import MarketingPage from "./pages/MarketingPage";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import getMPTheme from "./theme/getMPTheme";
 
 function App() {
+  const MPTheme = createTheme(getMPTheme("light"));
+
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          {/* Define other routes here */}
-        </Routes>
-      </div>
-    </Router>
+    <ThemeProvider theme={MPTheme}>
+      <CssBaseline />
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<MarketingPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
