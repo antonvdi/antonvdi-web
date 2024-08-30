@@ -4,10 +4,12 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "..";
 import { useEffect, useState } from "react";
 import {
+  Box,
   Button,
   Card,
   CardActions,
   CardContent,
+  Chip,
   CircularProgress,
 } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -17,27 +19,88 @@ export default function Examples() {
   const [prevExamples, setPrevExamples] = useState<string[]>([]);
   const [example, setExample] = useState<string>("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const [selectedCompanyType, setSelectedCompanyType] = useState<string | null>(
+    null
+  );
 
   const askOpenAI = httpsCallable(functions, "askOpenAI");
 
-  const updateExample = async () => {
-    const result = await askOpenAI({ prevAnswers: prevExamples });
-    setExample(result.data as string);
-    setPrevExamples((prevExamples) => [...prevExamples, example]);
+  const updateExample = async (
+    myBusinessType: string,
+    myPrevExamples: string[]
+  ) => {
+    const result = await askOpenAI({
+      prevAnswers: myPrevExamples,
+      businessType: myBusinessType ?? "lokal virksomhed",
+    });
+    const newExample = result.data as string;
+    setExample(newExample);
+    setPrevExamples((prevExamples) => [...prevExamples, newExample]);
   };
 
   useEffect(() => {
-    updateExample();
+    updateExample(selectedCompanyType ?? "lokal virksomhed", prevExamples);
   }, []);
 
-  const handleClick = () => {
+  const handleRefresh = (businessType: string) => {
     setIsDisabled(true);
     setExample("");
-    updateExample();
+    updateExample(businessType, prevExamples);
 
     setTimeout(() => {
       setIsDisabled(false);
     }, 5000);
+  };
+
+  const companyTypes: string[] = [
+    "Revisor",
+    "Bank",
+    "Bageri",
+    "Restaurant",
+    "Supermarked",
+    "Tøjbutik",
+    "Frisørsalon",
+    "Skønhedssalon",
+    "Auktionarius",
+    "Dyrlæge",
+    "Fitnesscenter",
+    "Mekaniker",
+    "Ejendomsmægler",
+    "Håndværker",
+    "IT-service",
+    "Børnehave",
+    "Skole",
+    "Webshop",
+    "Fotograf",
+    "Sygepleje",
+    "Kommunikationsbureau",
+    "Arkitekt",
+    "Advokat",
+    "Rengøringsservice",
+    "Vinduespudser",
+    "Entreprenør",
+    "Vagt",
+    "Terapeut",
+    "Coach",
+    "Hotel",
+    "Campingplads",
+    "Bibliotek",
+    "Museum",
+    "Biograf",
+    "Musikskole",
+    "Tandlæge",
+    "Optiker",
+    "Psykolog",
+  ];
+
+  const handleChangeCompanyType = (type: string) => {
+    if (selectedCompanyType === type) {
+      setSelectedCompanyType(null);
+      return;
+    }
+    setPrevExamples([]);
+    setSelectedCompanyType(type);
+    handleRefresh(type);
   };
 
   return (
@@ -53,16 +116,19 @@ export default function Examples() {
         gap: { xs: 3, sm: 6 },
       }}
     >
-      <Card sx={{ width: 400 }}>
+      <Card sx={{ minWidth: 400, maxWidth: 600 }}>
         <CardContent>
-          <Typography
-            gutterBottom
-            sx={{ color: "text.secondary", fontSize: 14 }}
-            fontStyle={"italic"}
-          >
-            Genereret af AI
-          </Typography>
-          <Typography variant="h5" component="div" sx={{ mb: 2 }}>
+          {companyTypes.map((type) => (
+            <Chip
+              key={type}
+              label={type}
+              onClick={() => handleChangeCompanyType(type)}
+              variant={selectedCompanyType === type ? "filled" : "outlined"}
+              color={selectedCompanyType === type ? "primary" : "default"}
+              sx={{ margin: "4px" }}
+            />
+          ))}
+          <Typography variant="h5" component="div" sx={{ mb: 2, mt: 4 }}>
             AI kan hjælpe dig med...
           </Typography>
 
@@ -79,10 +145,14 @@ export default function Examples() {
             startIcon={
               isDisabled ? <CircularProgress size={20} /> : <RefreshIcon />
             }
-            onClick={!isDisabled ? handleClick : undefined}
+            onClick={
+              !isDisabled
+                ? () => handleRefresh(selectedCompanyType ?? "lokal virksomhed")
+                : undefined
+            }
             disabled={isDisabled}
           >
-            Regenerér
+            Generér
           </Button>
         </CardActions>
       </Card>

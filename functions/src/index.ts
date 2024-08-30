@@ -26,9 +26,9 @@ export const askOpenAI = onRequest(
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
     const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
-    const prevAnswers = request.body;
+    const prevAnswers = request.body.data.prevAnswers;
+    const businessType = request.body.data.businessType;
 
-    // Check if the cache is valid
     const currentTime = Date.now();
     if (
       cache.lastResponse &&
@@ -50,7 +50,7 @@ export const askOpenAI = onRequest(
       );
     }
 
-    const predefinedPrompt = `Hvilken ide, kreativt forslag eller konkrete løsninger kan jeg lave med AI til min lokale, små- eller mellemstore virksomhed? Undgå de allerede brugte svar: ${prevAnswersPrompt}.`;
+    const predefinedPrompt = `Hvilken konkrete software løsning, der bruger AI eller ML, kan jeg udvikle, der kan skabe værdi for min virksomhed? Min virksomhed er en ${businessType}. Undgå de allerede brugte svar: ${prevAnswersPrompt}.`;
 
     try {
       const completion = await openai.chat.completions.create({
@@ -58,7 +58,7 @@ export const askOpenAI = onRequest(
           {
             role: "system",
             content:
-              "Du er en hjælpsom assistent. Du svarer med 1-7 ord. Sætningen skal kunne slutte 'AI kan hjælpe dig med...', men ikke inkludere den specifikke sætning.",
+              "Du er en hjælpsom assistent. Du svarer med 1-7 ord og på en måde, der giver mening til non-tech folk. Sætningen skal kunne slutte 'AI kan hjælpe dig med...', men ikke inkludere den specifikke sætning.",
           },
           {
             role: "user",
