@@ -5,6 +5,7 @@ import Ydelser from "../components/Ydelser";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import Inspiration from "../components/Inspiration";
+import Contact from "../components/Contact";
 
 export default function MarketingPage() {
   return (
@@ -14,14 +15,10 @@ export default function MarketingPage() {
       <div>
         <Divider />
         <Inspiration />
-        {/* <LogoCollection /> */}
-        {/* <Features /> */}
-        {/* <Divider /> */}
-        {/* <Testimonials /> */}
         <Divider />
         <Ydelser />
-        {/* <Divider /> */}
-        {/* <Pricing /> */}
+        <Divider />
+        <Contact />
         <Divider />
         <FAQ />
         <Divider />
