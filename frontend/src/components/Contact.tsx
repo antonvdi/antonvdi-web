@@ -8,8 +8,27 @@ import {
   CardActions,
   CardContent,
 } from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+const createMailToLink = (email: string, subject: string, body: string) => {
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+
+  return `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
+};
 
 export default function Contact() {
+  const email = "anton@irvold.dk";
+  const subject = "Henvendelse om AI eller software projekt";
+  const body = `Hej,\n\nMin ide/projekt beskrevet på 2-3 linjer:
+                \nPlatform: (website, mobilapp, integration til eksisterende system, osv.)
+                \nTidsplan: (ønsket start og deadline)
+                \Tilgængelig: (datoer, tidspunkt, Teams/Zoom/tlf. møde)
+                \nVenlig hilsen (navn)`;
+
+  const mailToLink = createMailToLink(email, subject, body);
+
   return (
     <Box
       sx={{
@@ -89,8 +108,8 @@ export default function Contact() {
           </CardContent>
           <CardActions>
             <Button
-              startIcon={<></>}
-              href="mailto:anton@irvold.dk"
+              startIcon={<EmailIcon />}
+              href={mailToLink}
               color="primary"
               target="_blank"
               sx={{ mr: 1 }}
@@ -99,7 +118,7 @@ export default function Contact() {
               anton@irvold.dk
             </Button>
             <Button
-              startIcon={<></>}
+              startIcon={<LinkedInIcon />}
               color="info"
               href="https://www.linkedin.com/in/anton-irvold"
               target="_blank"

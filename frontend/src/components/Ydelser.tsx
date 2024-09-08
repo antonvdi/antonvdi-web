@@ -103,14 +103,14 @@ export default function Ydelser() {
                 }}
               >
                 <Box sx={{ opacity: "50%" }}>{item.icon}</Box>
-                <div>
+                <Box>
                   <Typography gutterBottom sx={{ fontWeight: "medium" }}>
                     {item.title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: "grey.400" }}>
                     {item.description}
                   </Typography>
-                </div>
+                </Box>
               </Stack>
             </Grid>
           ))}
