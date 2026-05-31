@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci && npm run build
+      # Site paused: deploy static placeholder instead of React build.
+      # To resume: replace with `npm ci && npm run build` in frontend/.
+      - run: cp -r placeholder build
+        working-directory: frontend
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
